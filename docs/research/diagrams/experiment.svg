@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="exp-t exp-d">
+<title id="exp-t">Benchmark design</title><desc id="exp-d">One product spec (Taskwell, about 100 hidden traps) and one kickoff prompt go to two arms, NestJS and murmur, run by the same Sonnet team under a Fable orchestrator. Each arm builds from zero, passes acceptance, runs the 692-test hidden suite and is measured. The murmur arm loops: fix the framework, new snapshot, rerun from zero.</desc>
+<style>text{font-family:ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif}</style>
+<defs><marker id="exp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6b7280"/></marker><marker id="exp-t-NestJS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2563eb"/></marker><marker id="exp-t-murmur" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker><marker id="exp-loop" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker></defs>
+<g fill="#111827">
+<rect x="16" y="16" width="928" height="32" rx="8" fill="#e5e7eb"/>
+<text x="28" y="37" font-size="15" font-weight="700">Benchmark design: one spec, two arms, same team</text>
+<text x="932" y="37" font-size="12" text-anchor="end">headless Claude Code sessions</text>
+<rect x="16" y="60" width="168" height="240" rx="8" fill="#e5e7eb"/>
+<text x="28" y="80" font-size="13" font-weight="700">Inputs</text>
+<rect x="24" y="90" width="152" height="124" rx="8" fill="#f59e0b"/>
+<text x="36" y="110" font-size="13" font-weight="700">Product spec</text>
+<text x="36" y="127" font-size="12" font-weight="600">Taskwell</text>
+<text x="36" y="145" font-size="11">48 hidden traps:</text>
+<text x="36" y="161" font-size="11">concurrency,</text>
+<text x="36" y="177" font-size="11">idempotency, time,</text>
+<text x="36" y="193" font-size="11">webhooks, errors</text>
+<rect x="24" y="224" width="152" height="66" rx="8" fill="#ffffff" stroke="#6b7280" stroke-width="1"/>
+<text x="100" y="253.4" font-size="13" text-anchor="middle" font-weight="700">Kickoff prompt</text>
+<text x="100" y="270.7" font-size="11" text-anchor="middle">same for both arms</text>
+<path d="M184 232L210 232" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#exp-arrow)"/>
+<path d="M184 272L210 272" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#exp-arrow)"/>
+<rect x="200" y="60" width="140" height="240" rx="8" fill="#e5e7eb"/>
+<text x="212" y="80" font-size="13" font-weight="700">Two arms</text>
+<text x="212" y="100" font-size="11">same Sonnet team</text>
+<text x="212" y="116" font-size="11">Fable orchestrator</text>
+<text x="212" y="132" font-size="11">headless Claude</text>
+<text x="212" y="148" font-size="11">Code sessions</text>
+<text x="212" y="164" font-size="11">16 h cap</text>
+<rect x="212" y="218" width="116" height="28" rx="14" fill="#2563eb"/>
+<text x="270" y="236.9" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">NestJS</text>
+<rect x="212" y="258" width="116" height="28" rx="14" fill="#7c3aed"/>
+<text x="270" y="276.9" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">murmur</text>
+<rect x="356" y="60" width="138" height="240" rx="8" fill="#e5e7eb"/>
+<text x="366" y="82" font-size="13" font-weight="700">Build from zero</text>
+<text x="366" y="104" font-size="11">empty repo</text>
+<text x="366" y="120" font-size="11">spec + kickoff only</text>
+<text x="366" y="136" font-size="11">until done or 16 h</text>
+<rect x="506" y="60" width="138" height="240" rx="8" fill="#e5e7eb"/>
+<text x="516" y="82" font-size="13" font-weight="700">Acceptance</text>
+<text x="516" y="104" font-size="11">13 smoke</text>
+<text x="516" y="120" font-size="11">walkthroughs on a</text>
+<text x="516" y="136" font-size="11">clean clone,</text>
+<text x="516" y="152" font-size="11">README only</text>
+<rect x="656" y="60" width="138" height="240" rx="8" fill="#e5e7eb"/>
+<text x="666" y="82" font-size="13" font-weight="700">Hidden suite</text>
+<text x="666" y="104" font-size="11">692 black-box tests</text>
+<text x="666" y="120" font-size="11">13 happy</text>
+<text x="666" y="136" font-size="11">217 traps</text>
+<text x="666" y="152" font-size="11">462 error contract</text>
+<rect x="806" y="60" width="138" height="240" rx="8" fill="#e5e7eb"/>
+<text x="816" y="82" font-size="13" font-weight="700">Measurement</text>
+<text x="816" y="104" font-size="11">code shape</text>
+<text x="816" y="120" font-size="11">git process</text>
+<text x="816" y="136" font-size="11">container perf:</text>
+<text x="816" y="152" font-size="11">2 CPUs · 1 GiB</text>
+<text x="816" y="168" font-size="11">api + worker</text>
+<text x="816" y="184" font-size="11">5 request classes</text>
+<text x="816" y="200" font-size="11">with p99 targets</text>
+<path d="M328 232L936 232" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#exp-t-NestJS)"/>
+<circle cx="425" cy="232" r="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<circle cx="575" cy="232" r="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<circle cx="725" cy="232" r="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<circle cx="875" cy="232" r="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<path d="M328 272L936 272" fill="none" stroke="#7c3aed" stroke-width="3" marker-end="url(#exp-t-murmur)"/>
+<circle cx="425" cy="272" r="6" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
+<circle cx="575" cy="272" r="6" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
+<circle cx="725" cy="272" r="6" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
+<circle cx="875" cy="272" r="6" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
+<path d="M875 280L875 340L425 340L425 282" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#exp-loop)"/>
+<rect x="505" y="322" width="290" height="36" rx="8" fill="#7c3aed"/>
+<text x="650" y="337.2" font-size="11" text-anchor="middle" fill="#ffffff" font-weight="600">pilot loop: fix framework from findings,</text>
+<text x="650" y="351.2" font-size="11" text-anchor="middle" fill="#ffffff">new snapshot, rerun from zero (0.2.1 → 0.3.0)</text>
+<rect x="16" y="372" width="928" height="32" rx="8" fill="#e5e7eb" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="480" y="392.6" font-size="12" text-anchor="middle">Pilots are uncounted calibration runs; the planned 2×2 (framework × team model) block was not started.</text>
+</g>
+</svg>

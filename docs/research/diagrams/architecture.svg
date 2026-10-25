@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="arch-t arch-d">
+<title id="arch-t">An app is a flock of pieces</title><desc id="arch-d">murmur architecture: edge pieces (@Serve routes) and domain pieces (@Handle on contracts) connect only to a typed contract bus with a swappable transport; pieces declare capabilities with needs:; each piece is sized for one agent context.</desc>
+<style>text{font-family:ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif}</style>
+<defs><marker id="arch-both" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6b7280"/></marker><marker id="arch-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6b7280"/></marker></defs>
+<g fill="#111827">
+<rect x="16" y="16" width="700" height="36" rx="8" fill="#e5e7eb"/>
+<text x="30" y="40" font-size="18" font-weight="700">An app is a flock of pieces</text>
+<text x="704" y="39" font-size="12" text-anchor="end">pieces never call each other, only the bus</text>
+<rect x="16" y="64" width="312" height="164" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="1"/>
+<text x="28" y="86" font-size="13" font-weight="700">Edge pieces</text>
+<rect x="124" y="96" width="96" height="22" rx="11" fill="#6b7280"/>
+<text x="172" y="111.6" font-size="12" text-anchor="middle" fill="#ffffff" font-weight="700">HTTP in</text>
+<rect x="28" y="132" width="138" height="80" rx="8" fill="#2563eb"/>
+<text x="97" y="159.9" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">api/rest</text>
+<text x="97" y="177.2" font-size="11" text-anchor="middle" fill="#ffffff">@Serve POST /todos</text>
+<text x="97" y="194.2" font-size="11" text-anchor="middle" fill="#ffffff">req.read / req.reply</text>
+<path d="M172 118L97 130" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+<path d="M97 212L97 250" fill="none" stroke="#6b7280" stroke-width="1.5" marker-start="url(#arch-both)" marker-end="url(#arch-both)"/>
+<rect x="178" y="132" width="138" height="80" rx="8" fill="#2563eb"/>
+<text x="247" y="159.9" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">api/feed</text>
+<text x="247" y="177.2" font-size="11" text-anchor="middle" fill="#ffffff">@Serve GET /feed</text>
+<text x="247" y="194.2" font-size="11" text-anchor="middle" fill="#ffffff">SSE</text>
+<path d="M172 118L247 130" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+<path d="M247 212L247 250" fill="none" stroke="#6b7280" stroke-width="1.5" marker-start="url(#arch-both)" marker-end="url(#arch-both)"/>
+<rect x="344" y="64" width="372" height="164" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="1"/>
+<text x="356" y="86" font-size="13" font-weight="700">Domain pieces</text>
+<text x="356" y="106" font-size="11">@Handle on Command / Query / Event contracts</text>
+<rect x="356" y="132" width="110" height="80" rx="8" fill="#10b981"/>
+<text x="411" y="159.9" font-size="13" text-anchor="middle" font-weight="700">todos</text>
+<text x="411" y="177.2" font-size="11" text-anchor="middle">Command:</text>
+<text x="411" y="194.2" font-size="11" text-anchor="middle">CreateTodo</text>
+<path d="M411 212L411 250" fill="none" stroke="#6b7280" stroke-width="1.5" marker-start="url(#arch-both)" marker-end="url(#arch-both)"/>
+<rect x="475" y="132" width="110" height="80" rx="8" fill="#10b981"/>
+<text x="530" y="155.9" font-size="13" text-anchor="middle" font-weight="700">notifier</text>
+<text x="530" y="170.2" font-size="11" text-anchor="middle">Event:</text>
+<text x="530" y="184.2" font-size="11" text-anchor="middle">TodoCreated</text>
+<text x="530" y="198.2" font-size="11" text-anchor="middle" font-weight="600">runs as a job</text>
+<path d="M530 212L530 250" fill="none" stroke="#6b7280" stroke-width="1.5" marker-start="url(#arch-both)" marker-end="url(#arch-both)"/>
+<rect x="594" y="132" width="110" height="80" rx="8" fill="#10b981"/>
+<text x="649" y="159.9" font-size="13" text-anchor="middle" font-weight="700">stats</text>
+<text x="649" y="177.2" font-size="11" text-anchor="middle">Query:</text>
+<text x="649" y="194.2" font-size="11" text-anchor="middle">GetStats</text>
+<path d="M649 212L649 250" fill="none" stroke="#6b7280" stroke-width="1.5" marker-start="url(#arch-both)" marker-end="url(#arch-both)"/>
+<rect x="16" y="252" width="700" height="64" rx="12" fill="#7c3aed"/>
+<text x="366" y="279.3" font-size="14" text-anchor="middle" fill="#ffffff" font-weight="700">Bus · typed contracts: Model · Query · Command · Event · Guard</text>
+<text x="366" y="299.6" font-size="12" text-anchor="middle" fill="#ffffff">every message travels in an envelope · swappable transport: in-memory / AMQP</text>
+<rect x="16" y="340" width="700" height="112" rx="8" fill="#e5e7eb"/>
+<text x="28" y="361" font-size="13"><tspan font-weight="700">Capabilities</tspan>  declared per piece with  <tspan font-weight="600">needs: { db: sqlite, jobs }</tspan></text>
+<rect x="28" y="372" width="100" height="68" rx="8" fill="#f59e0b"/>
+<text x="78" y="394.9" font-size="13" text-anchor="middle" font-weight="700">sqlite</text>
+<text x="78" y="411.2" font-size="11" text-anchor="middle">transactions</text>
+<text x="78" y="427.2" font-size="11" text-anchor="middle">+ migrate</text>
+<rect x="136" y="372" width="100" height="68" rx="8" fill="#f59e0b"/>
+<text x="186" y="410.9" font-size="13" text-anchor="middle" font-weight="700">kv</text>
+<rect x="244" y="372" width="100" height="68" rx="8" fill="#f59e0b"/>
+<text x="294" y="410.9" font-size="13" text-anchor="middle" font-weight="700">clock</text>
+<rect x="352" y="372" width="100" height="68" rx="8" fill="#f59e0b"/>
+<text x="402" y="402.9" font-size="13" text-anchor="middle" font-weight="700">jobs</text>
+<text x="402" y="419.2" font-size="11" text-anchor="middle">retry / every</text>
+<rect x="460" y="372" width="100" height="68" rx="8" fill="#f59e0b"/>
+<text x="510" y="410.9" font-size="13" text-anchor="middle" font-weight="700">web</text>
+<rect x="568" y="372" width="136" height="68" rx="8" fill="#f3f4f6" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="636" y="402.9" font-size="13" text-anchor="middle" font-weight="700">yours</text>
+<text x="636" y="419.2" font-size="11" text-anchor="middle">defineCapability()</text>
+<rect x="16" y="468" width="700" height="36" rx="8" fill="#e5e7eb" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="366" y="490.6" font-size="12" text-anchor="middle">Deploy time: processes  api / worker  partition the pieces (each process runs a subset)</text>
+<rect x="732" y="16" width="212" height="488" rx="8" fill="#e5e7eb"/>
+<text x="744" y="42" font-size="15" font-weight="700">Sized for one</text>
+<text x="744" y="61" font-size="15" font-weight="700">agent context</text>
+<text x="744" y="82" font-size="11">assembled context per piece</text>
+<rect x="744" y="94" width="188" height="32" rx="8" fill="#10b981"/>
+<text x="838" y="114.9" font-size="13" text-anchor="middle" font-weight="700">25k tokens · large</text>
+<rect x="744" y="134" width="188" height="32" rx="8" fill="#f59e0b"/>
+<text x="838" y="154.9" font-size="13" text-anchor="middle" font-weight="700">40k tokens · warn</text>
+<rect x="744" y="174" width="188" height="32" rx="8" fill="#dc2626"/>
+<text x="838" y="194.9" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">80k tokens · fail</text>
+<path d="M744 222L932 222" fill="none" stroke="#6b7280" stroke-width="1" opacity="0.6"/>
+<text x="744" y="246" font-size="13" font-weight="700">Source of truth</text>
+<rect x="744" y="256" width="188" height="26" rx="8" fill="#ffffff" stroke="#6b7280" stroke-width="1"/>
+<text x="838" y="273.6" font-size="12" text-anchor="middle" font-weight="600">context.md</text>
+<rect x="744" y="288" width="188" height="26" rx="8" fill="#ffffff" stroke="#6b7280" stroke-width="1"/>
+<text x="838" y="305.6" font-size="12" text-anchor="middle" font-weight="600">contracts</text>
+<rect x="744" y="320" width="188" height="26" rx="8" fill="#ffffff" stroke="#6b7280" stroke-width="1"/>
+<text x="838" y="337.6" font-size="12" text-anchor="middle" font-weight="600">tests</text>
+<path d="M838 352L838 380" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+<text x="848" y="371" font-size="11">regenerate</text>
+<rect x="744" y="384" width="188" height="30" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="838" y="403.6" font-size="12" text-anchor="middle">code (regenerable)</text>
+<text x="744" y="440" font-size="11">context.md + contracts + tests</text>
+<text x="744" y="456" font-size="11">are the source of truth;</text>
+<text x="744" y="472" font-size="11">code is regenerable</text>
+</g>
+</svg>
