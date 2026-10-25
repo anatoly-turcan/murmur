@@ -1,0 +1,71 @@
+{
+  "ref": "main",
+  "sha": "4cfc82f7bd6c382707beb5aae918ead61865e0d6",
+  "src": {
+    "files": 209,
+    "loc": 8930
+  },
+  "test": {
+    "files": 62,
+    "loc": 7357,
+    "cases": 531
+  },
+  "migration": {
+    "files": 4,
+    "loc": 176
+  },
+  "by_ext": {
+    ".js": {
+      "files": 1,
+      "loc": 13
+    },
+    ".mjs": {
+      "files": 15,
+      "loc": 770
+    },
+    ".ts": {
+      "files": 193,
+      "loc": 8147
+    }
+  },
+  "deps": {
+    "manifests": 1,
+    "direct_prod": 6,
+    "direct_dev": 11,
+    "names_prod": [
+      "@nestjs/common",
+      "@nestjs/core",
+      "@nestjs/platform-express",
+      "express",
+      "reflect-metadata",
+      "rxjs"
+    ],
+    "names_dev": [
+      "@jest/globals",
+      "@nestjs/cli",
+      "@nestjs/testing",
+      "@types/express",
+      "@types/jest",
+      "@types/node",
+      "@types/supertest",
+      "jest",
+      "supertest",
+      "ts-jest",
+      "typescript"
+    ],
+    "db_hints": [],
+    "lock_packages": 513,
+    "lockfiles": [
+      "pnpm-lock.yaml"
+    ]
+  },
+  "units": {
+    "murmur_pieces": 0,
+    "murmur_contract_files": 0,
+    "nest_modules": 25
+  },
+  "coverage_proxy": {
+    "test_loc_per_src_loc": 0.8238521836506159,
+    "cases_per_100_src_loc": 5.9462486002239645
+  }
+}

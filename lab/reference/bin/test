@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
+
+if [[ -x node_modules/.bin/tsc ]]; then
+  node_modules/.bin/tsc -p tsconfig.json
+fi
+
+shopt -s globstar nullglob
+tests=(test/**/*.test.ts)
+if (( ${#tests[@]} == 0 )); then
+  echo "no unit tests yet"
+  exit 0
+fi
+exec node "${NODE_FLAGS[@]}" --test "${tests[@]}"

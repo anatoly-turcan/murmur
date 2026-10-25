@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "nestjs-sonnet-1",
+  "phase": "phase1",
+  "framework": "nestjs",
+  "model": "sonnet",
+  "n": 1,
+  "orchestrator_model": "fable",
+  "implementer_model": "sonnet",
+  "reviewer_model": "sonnet",
+  "framework_ref": null,
+  "source_run": null,
+  "base_sha": "6ae43957307fd7330e2cb01b8bfe72eed15bb5bc",
+  "inputs": {
+    "spec_sha256": "c3f924af6610303ad1c518749ca59e238b8ec4d0e3bcd193b4a3573b97d41131",
+    "smoke_sha256": "83524de19b717cda57c1820f4f15b5b2b01b86cebdece745c8640fc9ec326586",
+    "kickoff_sha256": "25f45e58705371533763428445001c6dccf42ce80697b312cc410aae5fb9834e"
+  },
+  "timestamps": {
+    "created": "2026-10-25T03:30:36.000Z",
+    "kickoff": "2026-10-25T03:31:40.000Z",
+    "done": "2026-10-25T06:15:23.000Z",
+    "accepted": "2026-10-25T06:24:00.000Z"
+  },
+  "shas": {
+    "base": "6ae43957307fd7330e2cb01b8bfe72eed15bb5bc",
+    "done": "4cfc82f7bd6c382707beb5aae918ead61865e0d6",
+    "accepted": "4cfc82f7bd6c382707beb5aae918ead61865e0d6"
+  },
+  "bounces": [],
+  "stop": null,
+  "meta": {
+    "pilot": "true",
+    "claude_code_version": "2.1.310",
+    "launch": "headless-as-owner-user,setting-sources=project,allowedTools=broad",
+    "resumed_at": "2026-10-25T05:40:00Z",
+    "resume_reason": "headless print mode stopped background agent 013 after 10 min idle ceiling; resumed with CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS=0"
+  }
+}

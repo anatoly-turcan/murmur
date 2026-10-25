@@ -1,0 +1,265 @@
+{
+  "range": "main",
+  "head": "7bdb055fa01e3004c243b5c15a153be84921c792",
+  "commits": 74,
+  "first_parent_commits": 41,
+  "merges": 21,
+  "octopus_merges": 0,
+  "branches_local": 1,
+  "unmerged_branches": [],
+  "conflicted_merges": 2,
+  "conflicted_files": 2,
+  "conflict_resolution_lines": 11,
+  "amended_clean_merges": 0,
+  "marker_commits": 0,
+  "rerere_entries": 2,
+  "parallel": {
+    "lower": {
+      "max": 3,
+      "mean": 1.2896927935687625,
+      "busy_span_s": 3483
+    },
+    "upper": {
+      "max": 8,
+      "mean": 2.3999123959702144,
+      "busy_span_s": 4566
+    }
+  },
+  "merges_detail": [
+    {
+      "sha": "547bcb63ffe4d4d0064919f5ee55fd8f9705a135",
+      "merged_at": 1792937781,
+      "branch_commits": 6,
+      "start_first_commit": 1792935149,
+      "start_fork": 1792935382,
+      "end": 1792937709,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "7c543b6856fa0161a59a2c13e2943a578272c2c5",
+      "merged_at": 1792937670,
+      "branch_commits": 7,
+      "start_first_commit": 1792934763,
+      "start_fork": 1792934751,
+      "end": 1792935382,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "57553aaa21399fad0b27ab0a7a3d03052136ca51",
+      "merged_at": 1792935367,
+      "branch_commits": 5,
+      "start_first_commit": 1792934763,
+      "start_fork": 1792934751,
+      "end": 1792935254,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "30adb4c41776f59ea9087c3acabafdd78a339c94",
+      "merged_at": 1792934734,
+      "branch_commits": 1,
+      "start_first_commit": 1792934408,
+      "start_fork": 1792933501,
+      "end": 1792934408,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "0116465d8985059d8ab887207db0746d0e467ec3",
+      "merged_at": 1792934517,
+      "branch_commits": 1,
+      "start_first_commit": 1792934406,
+      "start_fork": 1792934010,
+      "end": 1792934406,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "81d9d0842f94c312bbad79a3483e7c3aa86b2e12",
+      "merged_at": 1792934471,
+      "branch_commits": 1,
+      "start_first_commit": 1792934349,
+      "start_fork": 1792934010,
+      "end": 1792934349,
+      "conflicted": true,
+      "conflicted_files": [
+        "FRAMEWORK-ISSUES.md"
+      ],
+      "resolution_lines": 4
+    },
+    {
+      "sha": "328799ae2f0bc6c5c81abfe119c1c896daeedc36",
+      "merged_at": 1792934363,
+      "branch_commits": 2,
+      "start_first_commit": 1792934091,
+      "start_fork": 1792933797,
+      "end": 1792934326,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "f12d6185cb37b5309d9f7afefbe9dc38275c8992",
+      "merged_at": 1792934345,
+      "branch_commits": 2,
+      "start_first_commit": 1792934083,
+      "start_fork": 1792933797,
+      "end": 1792934302,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "4f4fd70c9687f1c9bbe8f2447dd5c2bed3e0a8e0",
+      "merged_at": 1792934293,
+      "branch_commits": 2,
+      "start_first_commit": 1792934023,
+      "start_fork": 1792933797,
+      "end": 1792934157,
+      "conflicted": true,
+      "conflicted_files": [
+        "pieces/api/context.md"
+      ],
+      "resolution_lines": 7
+    },
+    {
+      "sha": "abd0ab4d6127749e23c01aad6ee649078eff9fc0",
+      "merged_at": 1792934207,
+      "branch_commits": 1,
+      "start_first_commit": 1792934070,
+      "start_fork": 1792933797,
+      "end": 1792934070,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "ad57b964ad15ba52ef28e07201194f1753cd700c",
+      "merged_at": 1792934170,
+      "branch_commits": 1,
+      "start_first_commit": 1792934076,
+      "start_fork": 1792933898,
+      "end": 1792934076,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "a4eab438e68c19a6134b30728b1ab3568aab78be",
+      "merged_at": 1792934007,
+      "branch_commits": 1,
+      "start_first_commit": 1792933864,
+      "start_fork": 1792933575,
+      "end": 1792933864,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "5ca73c39ca5275ea9fe615cf618896a09170d1af",
+      "merged_at": 1792934007,
+      "branch_commits": 2,
+      "start_first_commit": 1792933730,
+      "start_fork": 1792933501,
+      "end": 1792933964,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "8af105b29ea64eb3b6afc024cef58c9f6cbbaba7",
+      "merged_at": 1792933897,
+      "branch_commits": 1,
+      "start_first_commit": 1792933721,
+      "start_fork": 1792933146,
+      "end": 1792933721,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "6f415628fdca0c5797213619cce7d55fbd8faa30",
+      "merged_at": 1792933897,
+      "branch_commits": 1,
+      "start_first_commit": 1792933684,
+      "start_fork": 1792933146,
+      "end": 1792933684,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "d7b310a0a7dc8ed32a1da04738e43f4788952522",
+      "merged_at": 1792933796,
+      "branch_commits": 1,
+      "start_first_commit": 1792933672,
+      "start_fork": 1792933146,
+      "end": 1792933672,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "2c01cb1195e9cb0611b567cacb3702a35286e870",
+      "merged_at": 1792933673,
+      "branch_commits": 1,
+      "start_first_commit": 1792933574,
+      "start_fork": 1792933146,
+      "end": 1792933574,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "9fc3d5aaa97bdcaeab383124b8173b14c4ee4f11",
+      "merged_at": 1792933574,
+      "branch_commits": 1,
+      "start_first_commit": 1792933445,
+      "start_fork": 1792933146,
+      "end": 1792933445,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "82f643b76860c6f49da1ecde37bccb1fd86682a9",
+      "merged_at": 1792933500,
+      "branch_commits": 1,
+      "start_first_commit": 1792933415,
+      "start_fork": 1792933146,
+      "end": 1792933415,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "b986b9ac56f72346ed1e2b98f31079476af47aa5",
+      "merged_at": 1792933111,
+      "branch_commits": 1,
+      "start_first_commit": 1792932717,
+      "start_fork": 1792932371,
+      "end": 1792932717,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "7361906e3b7e898a05d3465513cfbd3aee4155f3",
+      "merged_at": 1792932838,
+      "branch_commits": 1,
+      "start_first_commit": 1792932648,
+      "start_fork": 1792932371,
+      "end": 1792932648,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    }
+  ]
+}

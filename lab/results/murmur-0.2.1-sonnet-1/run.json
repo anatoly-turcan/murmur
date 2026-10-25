@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "murmur-sonnet-1",
+  "phase": "phase1",
+  "framework": "murmur",
+  "model": "sonnet",
+  "n": 1,
+  "orchestrator_model": "fable",
+  "implementer_model": "sonnet",
+  "reviewer_model": "sonnet",
+  "framework_ref": "<murmur release snapshot>",
+  "source_run": null,
+  "base_sha": "ac65d6be053cc629952885d715adb9807d6e8812",
+  "inputs": {
+    "spec_sha256": "c3f924af6610303ad1c518749ca59e238b8ec4d0e3bcd193b4a3573b97d41131",
+    "smoke_sha256": "83524de19b717cda57c1820f4f15b5b2b01b86cebdece745c8640fc9ec326586",
+    "kickoff_sha256": "ff8138c6ac1199a2458da7f13df56e6e2da7b26846ea2eb98a3d2d2d3528b6de"
+  },
+  "timestamps": {
+    "created": "2026-10-25T03:48:03.000Z",
+    "kickoff": "2026-10-25T03:50:50.000Z",
+    "done": "2026-10-25T05:37:22.000Z",
+    "accepted": "2026-10-25T05:43:30.000Z"
+  },
+  "shas": {
+    "base": "ac65d6be053cc629952885d715adb9807d6e8812",
+    "done": "9a8657aa8580a8842e5ae689ec7303e11c1604a3",
+    "accepted": "9a8657aa8580a8842e5ae689ec7303e11c1604a3"
+  },
+  "bounces": [],
+  "stop": null,
+  "meta": {
+    "pilot": "true",
+    "claude_code_version": "2.1.310",
+    "launch": "headless-as-isolated-os-user,setting-sources=project,allowedTools=broad"
+  }
+}

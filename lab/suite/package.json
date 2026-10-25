@@ -1,0 +1,21 @@
+{
+  "name": "taskwell-hidden-suite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=26"
+  },
+  "packageManager": "pnpm@12.11.2",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "suite": "bash scripts/run.sh",
+    "stub": "node stub/server.ts",
+    "selftest": "bash scripts/selftest.sh",
+    "render": "node reporter/render-md.ts"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "typescript": "7.0.2"
+  }
+}

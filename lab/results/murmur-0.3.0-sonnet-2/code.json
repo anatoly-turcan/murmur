@@ -1,0 +1,65 @@
+{
+  "ref": "main",
+  "sha": "7bdb055fa01e3004c243b5c15a153be84921c792",
+  "src": {
+    "files": 168,
+    "loc": 11699
+  },
+  "test": {
+    "files": 47,
+    "loc": 10902,
+    "cases": 567
+  },
+  "migration": {
+    "files": 0,
+    "loc": 0
+  },
+  "by_ext": {
+    ".ts": {
+      "files": 152,
+      "loc": 10774
+    },
+    ".sql": {
+      "files": 13,
+      "loc": 393
+    },
+    ".mjs": {
+      "files": 3,
+      "loc": 532
+    }
+  },
+  "deps": {
+    "manifests": 1,
+    "direct_prod": 4,
+    "direct_dev": 7,
+    "names_prod": [
+      "@murmur/node",
+      "@murmur/transport-memory",
+      "murmur",
+      "zod"
+    ],
+    "names_dev": [
+      "@murmur/cli",
+      "@murmur/lint",
+      "@types/node",
+      "oxfmt",
+      "oxlint",
+      "oxlint-tsgolint",
+      "typescript"
+    ],
+    "db_hints": [],
+    "lock_packages": 139,
+    "lockfiles": [
+      "pnpm-lock.yaml"
+    ]
+  },
+  "units": {
+    "murmur_pieces": 21,
+    "murmur_contract_files": 14,
+    "nest_modules": 0
+  },
+  "coverage_proxy": {
+    "test_loc_per_src_loc": 0.9318745191896743,
+    "cases_per_100_src_loc": 4.846568082742115
+  }
+}

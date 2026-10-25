@@ -1,0 +1,237 @@
+{
+  "range": "main",
+  "head": "4cfc82f7bd6c382707beb5aae918ead61865e0d6",
+  "commits": 93,
+  "first_parent_commits": 41,
+  "merges": 17,
+  "octopus_merges": 0,
+  "branches_local": 1,
+  "unmerged_branches": [],
+  "conflicted_merges": 7,
+  "conflicted_files": 13,
+  "conflict_resolution_lines": 100,
+  "amended_clean_merges": 0,
+  "marker_commits": 0,
+  "rerere_entries": 13,
+  "parallel": {
+    "lower": {
+      "max": 3,
+      "mean": 1.05575,
+      "busy_span_s": 4000
+    },
+    "upper": {
+      "max": 3,
+      "mean": 1.4002499609436025,
+      "busy_span_s": 6401
+    }
+  },
+  "merges_detail": [
+    {
+      "sha": "7bf9369a8eed03e57679f17eef4e61c14bc11a6c",
+      "merged_at": 1792908787,
+      "branch_commits": 8,
+      "start_first_commit": 1792906179,
+      "start_fork": 1792905773,
+      "end": 1792907862,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "3a1c9db6bff96d065cfb2968235d8a59d62f3cbe",
+      "merged_at": 1792906179,
+      "branch_commits": 5,
+      "start_first_commit": 1792905470,
+      "start_fork": 1792905638,
+      "end": 1792905773,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "a70709a2aa0bdadf84b4271e488e5ee41d2934fd",
+      "merged_at": 1792905772,
+      "branch_commits": 3,
+      "start_first_commit": 1792905470,
+      "start_fork": 1792904810,
+      "end": 1792905470,
+      "conflicted": true,
+      "conflicted_files": [
+        "README.md",
+        "src/app.module.ts"
+      ],
+      "resolution_lines": 6
+    },
+    {
+      "sha": "cc6701fe2f4d314adf9482a44b820dbe77872a7f",
+      "merged_at": 1792905429,
+      "branch_commits": 3,
+      "start_first_commit": 1792905048,
+      "start_fork": 1792904810,
+      "end": 1792905081,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "3ffcc3d279f3e5160e9f0abc7937a54c3ea856f4",
+      "merged_at": 1792905161,
+      "branch_commits": 3,
+      "start_first_commit": 1792904296,
+      "start_fork": 1792903721,
+      "end": 1792904296,
+      "conflicted": true,
+      "conflicted_files": [
+        "README.md",
+        "src/app.module.ts",
+        "test/helpers/create-test-app.ts"
+      ],
+      "resolution_lines": 21
+    },
+    {
+      "sha": "2b1282a8df21efd3a1ede47b65606059955d7332",
+      "merged_at": 1792905029,
+      "branch_commits": 2,
+      "start_first_commit": 1792903939,
+      "start_fork": 1792903721,
+      "end": 1792904464,
+      "conflicted": true,
+      "conflicted_files": [
+        "README.md"
+      ],
+      "resolution_lines": 4
+    },
+    {
+      "sha": "297ee743874de47476a770082f2786829c0c1516",
+      "merged_at": 1792904493,
+      "branch_commits": 2,
+      "start_first_commit": 1792903898,
+      "start_fork": 1792903721,
+      "end": 1792903964,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "2f5eb3afb44b4693ab18575a4c9f20fe9d0031ac",
+      "merged_at": 1792903721,
+      "branch_commits": 3,
+      "start_first_commit": 1792903407,
+      "start_fork": 1792902843,
+      "end": 1792903407,
+      "conflicted": true,
+      "conflicted_files": [
+        "README.md"
+      ],
+      "resolution_lines": 4
+    },
+    {
+      "sha": "b0845b02c534b62d4f18203d7da5a69eed156cb9",
+      "merged_at": 1792903599,
+      "branch_commits": 2,
+      "start_first_commit": 1792903404,
+      "start_fork": 1792903166,
+      "end": 1792903404,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "3b0c55400237d6547afcfdda780166539ffa5729",
+      "merged_at": 1792903166,
+      "branch_commits": 6,
+      "start_first_commit": 1792902044,
+      "start_fork": 1792902511,
+      "end": 1792903038,
+      "conflicted": true,
+      "conflicted_files": [
+        "README.md"
+      ],
+      "resolution_lines": 4
+    },
+    {
+      "sha": "37282f0004119a1cfde98d9e1ee986f5e5bd90cc",
+      "merged_at": 1792902842,
+      "branch_commits": 2,
+      "start_first_commit": 1792902699,
+      "start_fork": 1792902511,
+      "end": 1792902732,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "aa4b5239dc2544c209beed61b79e6dd76477fad7",
+      "merged_at": 1792902587,
+      "branch_commits": 7,
+      "start_first_commit": 1792902347,
+      "start_fork": 1792901823,
+      "end": 1792902511,
+      "conflicted": true,
+      "conflicted_files": [
+        "README.md",
+        "src/activity/activity.module.ts",
+        "src/app.module.ts"
+      ],
+      "resolution_lines": 42
+    },
+    {
+      "sha": "0d29771058df7600a84a932f9a9fa690cf53b038",
+      "merged_at": 1792902510,
+      "branch_commits": 4,
+      "start_first_commit": 1792902347,
+      "start_fork": 1792901823,
+      "end": 1792902348,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "e1ac7ce00b1f51f0d1d89af2f510ba14f217c369",
+      "merged_at": 1792901823,
+      "branch_commits": 4,
+      "start_first_commit": 1792901579,
+      "start_fork": 1792901520,
+      "end": 1792901663,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "8201949767c629d05b87129e0c10a4136adecab9",
+      "merged_at": 1792901663,
+      "branch_commits": 7,
+      "start_first_commit": 1792901183,
+      "start_fork": 1792901083,
+      "end": 1792901520,
+      "conflicted": true,
+      "conflicted_files": [
+        "README.md",
+        "src/app.module.ts"
+      ],
+      "resolution_lines": 19
+    },
+    {
+      "sha": "31d5332fae4d90b2775e4c5690d191bf25f6ddc3",
+      "merged_at": 1792901491,
+      "branch_commits": 3,
+      "start_first_commit": 1792901377,
+      "start_fork": 1792901083,
+      "end": 1792901377,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    },
+    {
+      "sha": "25f075e6214886d23c75b401b501e38cbda0ca9e",
+      "merged_at": 1792901082,
+      "branch_commits": 7,
+      "start_first_commit": 1792900814,
+      "start_fork": 1792900204,
+      "end": 1792900814,
+      "conflicted": false,
+      "conflicted_files": [],
+      "resolution_lines": 0
+    }
+  ]
+}

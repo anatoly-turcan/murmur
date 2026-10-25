@@ -1,0 +1,21 @@
+{
+  "name": "taskwell-reference",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=26"
+  },
+  "packageManager": "pnpm@12.11.2",
+  "scripts": {
+    "setup": "node src/setup.ts",
+    "api": "node src/api.ts",
+    "worker": "node src/worker.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "bash bin/test"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "typescript": "7.0.2"
+  }
+}

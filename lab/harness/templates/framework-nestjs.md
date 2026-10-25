@@ -1,0 +1,3 @@
+## Framework
+
+Build the product with **NestJS**, the TypeScript server framework, as a standard modular monolith on Node 26: feature modules with controllers, providers and dependency injection, structured as the official NestJS documentation describes. Use the current stable NestJS release from npm. The official NestJS CLI (`@nestjs/cli`) and the official documentation at https://docs.nestjs.com are available to you; nothing else is provided. Use only NestJS's documented public API and do not modify NestJS itself; if a framework defect blocks you, work around it inside the application and record it in `FRAMEWORK-ISSUES.md`. The choice of ORM or query library and of other libraries is yours.
