@@ -1,0 +1,16 @@
+{
+  "name": "lint-fixture-app",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#contracts/*": "./contracts/*.ts",
+    "#capabilities/*": "./capabilities/*/capability.ts"
+  },
+  "dependencies": {
+    "date-fns": "4.1.0",
+    "nanoid": "5.1.6"
+  },
+  "devDependencies": {
+    "fast-check": "4.3.0"
+  }
+}

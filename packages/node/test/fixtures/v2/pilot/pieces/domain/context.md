@@ -1,0 +1,5 @@
+---
+summary: Answers pings.
+---
+
+# domain

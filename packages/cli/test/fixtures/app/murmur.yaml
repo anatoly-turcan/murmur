@@ -1,0 +1,6 @@
+capabilities:
+  sqlite:
+    migrations: migrations
+pieces:
+  todos/create:
+    prefix: fx

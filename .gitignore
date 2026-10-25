@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+.murmur/
+packages/cli/docs/
+.env
+.claude/
+lab/**/node_modules/
+lab/suite/out/
+lab/reference-out/
+lab/**/*.tsbuildinfo

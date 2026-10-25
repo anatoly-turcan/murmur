@@ -1,0 +1,5 @@
+capabilities:
+  sqlite:
+    path: '${DATABASE_PATH:-:memory:}'
+  jobs:
+    poll: false

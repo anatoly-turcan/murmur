@@ -1,0 +1,37 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with: { node-version-file: .nvmrc, cache: pnpm }
+      - run: node -e "const [m]=process.versions.node.split('.');if(+m<26)process.exit(1)"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build:ui
+      - run: pnpm --filter @murmur-examples/todo-api check
+      - run: pnpm --filter @murmur-examples/todo-api exec murmur catalog --strict
+      - uses: actions/upload-artifact@v4
+        with: { name: ui-dist, path: packages/ui/dist }
+  amqp:
+    needs: check
+    runs-on: ubuntu-latest
+    services:
+      rabbitmq:
+        image: rabbitmq:4-management
+        ports: ['5672:5672']
+        options: >-
+          --health-cmd "rabbitmq-diagnostics -q ping" --health-interval 5s --health-timeout 5s --health-retries 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with: { node-version-file: .nvmrc, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @murmur/transport-amqp test
+        env: { AMQP_URL: amqp://localhost }

@@ -1,0 +1,6 @@
+{
+  "name": "murmur",
+  "version": "0.3.0",
+  "description": "Write, regenerate and review murmur pieces and contracts through the murmur CLI; checks every edit under pieces/ and contracts/.",
+  "license": "MIT"
+}

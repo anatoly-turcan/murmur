@@ -1,0 +1,4 @@
+{
+  "extends": "../../../../node/tsconfig.app.json",
+  "include": ["pieces", "contracts", "capabilities", "murmur.config.ts"]
+}

@@ -1,0 +1,323 @@
+{
+  "kind": "catalog",
+  "contracts": [
+    {
+      "name": "audit.recorded",
+      "kind": "event",
+      "className": "AuditRecorded",
+      "hasReply": false,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/audit.ts",
+      "emitters": ["audit"],
+      "requesters": [],
+      "enqueuers": [],
+      "handlers": ["audit/archive"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "todoId": {
+              "type": "string"
+            }
+          },
+          "required": ["todoId"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "name": "todos.cache.invalidate",
+      "kind": "event",
+      "className": "TodosCacheInvalidate",
+      "hasReply": false,
+      "visibility": "internal",
+      "scope": "todos",
+      "file": "pieces/todos/contracts.ts",
+      "emitters": ["todos/create"],
+      "requesters": [],
+      "enqueuers": [],
+      "handlers": ["todos/query"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": ["id"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "name": "todos.create.requested",
+      "kind": "command",
+      "className": "TodoCreateRequested",
+      "hasReply": true,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": ["(external: gateway)"],
+      "requesters": [],
+      "enqueuers": [],
+      "handlers": ["todos/create"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": ["title"],
+          "additionalProperties": false
+        },
+        "reply": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": ["id", "title"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "name": "todos.created",
+      "kind": "event",
+      "className": "TodoCreated",
+      "hasReply": false,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": ["todos/create"],
+      "requesters": [],
+      "enqueuers": [],
+      "handlers": ["audit"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": ["id", "title"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "name": "todos.list.requested",
+      "kind": "query",
+      "className": "TodoListRequested",
+      "hasReply": true,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": ["(external: gateway)"],
+      "requesters": [],
+      "enqueuers": [],
+      "handlers": ["todos/query"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "reply": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": ["id", "title"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["items"],
+          "additionalProperties": false
+        }
+      }
+    }
+  ],
+  "pieces": [
+    {
+      "name": "audit",
+      "className": "Audit",
+      "kind": "domain",
+      "title": "Audit",
+      "summary": "Records every created todo.",
+      "dir": "pieces/audit",
+      "parent": null,
+      "depth": 1,
+      "children": ["audit/archive"],
+      "needs": [],
+      "needFields": [],
+      "emits": ["audit.recorded"],
+      "handles": ["todos.created"],
+      "serves": [],
+      "requests": [],
+      "schedules": [],
+      "config": [],
+      "policy": {},
+      "hasContextMd": true,
+      "hasTests": true
+    },
+    {
+      "name": "audit/archive",
+      "className": "AuditArchive",
+      "kind": "domain",
+      "title": "Archive",
+      "summary": "Archives audit records.",
+      "dir": "pieces/audit/archive",
+      "parent": "audit",
+      "depth": 2,
+      "children": [],
+      "needs": [],
+      "needFields": [],
+      "emits": [],
+      "handles": ["audit.recorded"],
+      "serves": [],
+      "requests": [],
+      "schedules": [],
+      "config": [],
+      "policy": {},
+      "hasContextMd": true,
+      "hasTests": true
+    },
+    {
+      "name": "todos/create",
+      "className": "TodoCreator",
+      "kind": "domain",
+      "title": "Create todo",
+      "summary": "Creates todos from requests and announces them.",
+      "dir": "pieces/todos/create",
+      "parent": "todos",
+      "depth": 2,
+      "children": [],
+      "needs": ["sqlite"],
+      "needFields": ["db=sqlite"],
+      "emits": ["todos.created", "todos.cache.invalidate"],
+      "handles": ["todos.create.requested"],
+      "serves": [],
+      "requests": [],
+      "schedules": [],
+      "config": [
+        {
+          "key": "prefix",
+          "type": "string",
+          "source": "yaml",
+          "env": "MURMUR__TODOS_CREATE__PREFIX"
+        }
+      ],
+      "policy": {},
+      "hasContextMd": true,
+      "hasTests": true
+    },
+    {
+      "name": "todos/query",
+      "className": "TodoQuery",
+      "kind": "domain",
+      "title": "Query todos",
+      "summary": "Lists todos and drops its cache on invalidation.",
+      "dir": "pieces/todos/query",
+      "parent": "todos",
+      "depth": 2,
+      "children": [],
+      "needs": [],
+      "needFields": [],
+      "emits": [],
+      "handles": ["todos.list.requested", "todos.cache.invalidate"],
+      "serves": [],
+      "requests": [],
+      "schedules": [],
+      "config": [],
+      "policy": {},
+      "hasContextMd": true,
+      "hasTests": true
+    }
+  ],
+  "tree": [
+    {
+      "id": "audit",
+      "kind": "piece",
+      "title": "Audit",
+      "summary": "Records every created todo.",
+      "children": [
+        {
+          "id": "audit/archive",
+          "kind": "piece",
+          "title": "Archive",
+          "summary": "Archives audit records.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "todos",
+      "kind": "group",
+      "title": "Todos",
+      "summary": "Todo pieces and their internal cache contract.",
+      "children": [
+        {
+          "id": "todos/create",
+          "kind": "piece",
+          "title": "Create todo",
+          "summary": "Creates todos from requests and announces them.",
+          "children": []
+        },
+        {
+          "id": "todos/query",
+          "kind": "piece",
+          "title": "Query todos",
+          "summary": "Lists todos and drops its cache on invalidation.",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "gateway",
+      "kind": "ingress",
+      "usedBy": [],
+      "routes": 2
+    },
+    {
+      "name": "sqlite",
+      "kind": "handle",
+      "usedBy": ["todos/create"]
+    }
+  ],
+  "routes": [],
+  "warnings": [],
+  "errors": []
+}

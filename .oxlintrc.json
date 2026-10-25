@@ -1,0 +1,101 @@
+{
+  "extends": ["./packages/lint/preset.json"],
+  "ignorePatterns": [".claude/**", "lab/**"],
+  "overrides": [
+    {
+      "files": ["packages/core/src/**"],
+      "rules": {
+        "murmur/core-no-node": "error"
+      }
+    },
+    {
+      "files": ["packages/core/src/model/**"],
+      "rules": {
+        "murmur/model-no-runtime": "error"
+      }
+    },
+    {
+      "files": ["packages/core/test/typing/**"],
+      "rules": {
+        "murmur/erasable-syntax-only": "off"
+      }
+    },
+    {
+      "files": ["packages/core/test/typing/**", "packages/node/test/fixtures/v2/routes/typing.ts"],
+      "rules": {
+        "typescript/explicit-module-boundary-types": "off",
+        "murmur/method-return-type": "off"
+      }
+    },
+    {
+      "files": [
+        "packages/cli/src/**",
+        "packages/ui/src/**",
+        "packages/lint/src/**",
+        "packages/dev-protocol/src/**",
+        "plugins/**"
+      ],
+      "rules": {
+        "murmur/tooling-no-runtime": [
+          "error",
+          {
+            "allow": [
+              "packages/cli/src/dev/child.ts",
+              "packages/cli/src/commands/start.ts",
+              "packages/cli/src/commands/migrate.ts",
+              "packages/cli/src/transformer-report.ts"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "packages/node/src/runtime.ts",
+        "packages/node/src/migrate.ts",
+        "packages/node/src/register/index.ts",
+        "packages/node/src/testing/fakes.ts",
+        "packages/node/src/testing/test-app.ts"
+      ],
+      "rules": {
+        "murmur/no-process-env": "off"
+      }
+    },
+    {
+      "files": [
+        "packages/cli/src/main.ts",
+        "packages/cli/src/output.ts",
+        "packages/cli/src/check/lint.ts",
+        "packages/cli/src/commands/test.ts",
+        "packages/cli/test/helpers.ts",
+        "packages/cli/test/dev-helpers.ts",
+        "packages/node/test/register-app.ts",
+        "packages/transport-amqp/test/helpers.ts",
+        "scripts/release/*.ts"
+      ],
+      "rules": {
+        "murmur/no-process-env": "off"
+      }
+    },
+    {
+      "files": ["packages/node/test/**", "packages/core/test/**"],
+      "rules": {
+        "murmur/folder-local-imports": "off",
+        "murmur/no-cross-piece-contracts-import": "off",
+        "murmur/internal-contracts-scope": "off",
+        "murmur/emit-declared": "off",
+        "murmur/piece-exports-one-class": "off",
+        "murmur/one-piece-per-folder": "off",
+        "murmur/decorators-in-pieces-only": "off",
+        "murmur/contract-factory-wrapped": "off"
+      }
+    },
+    {
+      "files": ["packages/node/test/fixtures/v2/**"],
+      "rules": {
+        "murmur/erasable-syntax-only": "off",
+        "murmur/declared-deps-only": "off"
+      }
+    }
+  ]
+}

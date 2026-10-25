@@ -1,0 +1,11 @@
+{
+  "name": "murmur",
+  "owner": { "name": "murmur" },
+  "plugins": [
+    {
+      "name": "murmur",
+      "source": "./murmur",
+      "description": "Write, regenerate and review murmur pieces and contracts through the murmur CLI."
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+CREATE TABLE ticks (v TEXT NOT NULL);
+CREATE TABLE outcomes (tick TEXT NOT NULL, outcome TEXT NOT NULL);

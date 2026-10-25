@@ -1,0 +1,12 @@
+pieces:
+  auth:
+    tokens:
+      ada: ada
+      root: root
+    perMinute: 60
+capabilities:
+  sqlite:
+    path: '${DATABASE_PATH:-./todo.db}'
+    migrations: pieces/**/schema.sql
+  web:
+    port: ${PORT:-3000}

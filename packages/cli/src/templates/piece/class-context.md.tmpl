@@ -1,0 +1,40 @@
+---
+title: {{title}}
+summary: {{summary}}
+---
+
+<!-- one responsibility, one owner of state, a handful of handlers; split on pain, never speculatively; keep this file under 120 lines -->
+
+# {{id}}
+
+## What
+
+One paragraph. What this piece does in domain words, no implementation.
+
+## Why
+
+Why it exists as its own piece; what would break if it were merged into a neighbour.
+
+## Handles / Emits / Requests / Serves
+
+<!-- Handles:/Emits:/Requests:/Serves:/Needs:/Storage: lines are read by `murmur ctx` when piece.ts is absent; keep them true -->
+
+{{lanes}}
+
+{{lines}}
+
+## Needs
+
+{{needs}}
+
+## Invariants
+
+- {{invariant}}
+
+## Gotchas
+
+- Things an agent regenerating this piece would get wrong without being told.
+
+## Out of scope
+
+- What this piece deliberately does not do (and which piece does).

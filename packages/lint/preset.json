@@ -1,0 +1,72 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "promise", "node"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "ignorePatterns": ["node_modules/**", "dist/**", ".murmur/**", "coverage/**"],
+  "jsPlugins": ["@murmur/lint"],
+  "rules": {
+    "murmur/folder-local-imports": "error",
+    "murmur/declared-deps-only": "error",
+    "murmur/piece-exports-one-class": "error",
+    "murmur/one-piece-per-folder": "error",
+    "murmur/decorators-in-pieces-only": "error",
+    "murmur/decorator-args-static": "error",
+    "murmur/contract-factory-wrapped": "error",
+    "murmur/no-process-env": "error",
+    "murmur/no-comments-in-functions": "error",
+    "murmur/no-typeof-types": "error",
+    "murmur/no-nested-ternary": "error",
+    "murmur/blank-line-around-blocks": "error",
+    "murmur/emit-declared": "error",
+    "murmur/no-cross-piece-contracts-import": "error",
+    "murmur/internal-contracts-scope": "error",
+    "murmur/group-folder-files": "error",
+    "murmur/contracts-json-faithful": "error",
+    "murmur/erasable-syntax-only": "error",
+    "murmur/lib-pure": "error",
+    "curly": ["error", "all"],
+    "no-unused-expressions": ["error", { "allowShortCircuit": false, "allowTernary": false }],
+    "import/no-cycle": "error",
+    "typescript/consistent-type-imports": "error",
+    "unicorn/require-module-specifiers": "off",
+    "typescript/no-explicit-any": "error",
+    "typescript/no-non-null-assertion": "error",
+    "typescript/explicit-module-boundary-types": "error",
+    "murmur/method-return-type": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "process",
+            "message": "config lane only"
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.ts"],
+      "rules": {
+        "murmur/no-comments-in-functions": "off"
+      }
+    },
+    {
+      "files": ["**/contracts/**"],
+      "rules": {
+        "murmur/no-comments-in-functions": "warn"
+      }
+    },
+    {
+      "files": ["**/*.d.ts"],
+      "rules": {
+        "import/no-unassigned-import": "off"
+      }
+    }
+  ]
+}

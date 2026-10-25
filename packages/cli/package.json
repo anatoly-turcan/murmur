@@ -1,0 +1,74 @@
+{
+  "name": "@murmur/cli",
+  "version": "0.3.0",
+  "license": "MIT",
+  "bin": {
+    "murmur": "./bin/murmur.ts"
+  },
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "!src/**/*.test.ts"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./analysis": "./src/analysis/index.ts",
+    "./render": "./src/render/index.ts",
+    "./trace": "./src/dev/trace.ts",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "bin": {
+      "murmur": "./bin/murmur.js"
+    },
+    "exports": {
+      ".": {
+        "types": "./src/index.ts",
+        "default": "./src/index.js"
+      },
+      "./analysis": {
+        "types": "./src/analysis/index.ts",
+        "default": "./src/analysis/index.js"
+      },
+      "./render": {
+        "types": "./src/render/index.ts",
+        "default": "./src/render/index.js"
+      },
+      "./trace": {
+        "types": "./src/dev/trace.ts",
+        "default": "./src/dev/trace.js"
+      },
+      "./package.json": "./package.json"
+    },
+    "access": "public"
+  },
+  "scripts": {
+    "prepack": "node scripts/sync-docs.ts && node ../../scripts/release/emit.ts",
+    "postpack": "node ../../scripts/release/emit.ts --clean",
+    "test": "node --test 'src/**/*.test.ts' 'test/*.test.ts'",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@murmur/dev-protocol": "workspace:*",
+    "@murmur/lint": "workspace:*",
+    "@murmur/node": "workspace:*",
+    "@murmur/transport-memory": "workspace:*",
+    "@murmur/ui": "workspace:*",
+    "murmur": "workspace:*",
+    "oxc-parser": "0.155.0",
+    "oxfmt": "0.74.0",
+    "oxlint": "1.89.0",
+    "oxlint-tsgolint": "7.0.2005",
+    "yaml": "2.8.4"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "zod": "4.6.7"
+  },
+  "engines": {
+    "node": ">=26"
+  }
+}

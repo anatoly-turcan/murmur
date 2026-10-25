@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+@import './theme/tokens.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.pulse-dot {
+  offset-rotate: 0deg;
+  animation: travel 400ms linear forwards;
+}
+
+@keyframes travel {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot {
+    display: none;
+  }
+}

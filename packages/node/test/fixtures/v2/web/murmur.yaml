@@ -1,0 +1,9 @@
+pieces:
+  auth:
+    tokens:
+      ada: ada
+      root: root
+    perMinute: 60
+capabilities:
+  web:
+    port: 0

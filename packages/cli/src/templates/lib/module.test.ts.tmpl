@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
+
+import { {{fn}} } from '{{alias}}';
+
+test('{{fn}} trims the value', () => {
+  assert.equal({{fn}}('  a  '), 'a');
+});

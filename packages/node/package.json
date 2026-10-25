@@ -1,0 +1,82 @@
+{
+  "name": "@murmur/node",
+  "version": "0.3.0",
+  "license": "MIT",
+  "files": [
+    "src",
+    "tsconfig.app.json",
+    "!src/**/*.test.ts"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./testing": "./src/testing/index.ts",
+    "./capabilities": "./src/capabilities/index.ts",
+    "./lib": "./src/lib/index.ts",
+    "./register": "./src/register/index.ts",
+    "./register/transform": "./src/register/transform.ts",
+    "./tsconfig.app.json": "./tsconfig.app.json",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./src/index.ts",
+        "default": "./src/index.js"
+      },
+      "./testing": {
+        "types": "./src/testing/index.ts",
+        "default": "./src/testing/index.js"
+      },
+      "./capabilities": {
+        "types": "./src/capabilities/index.ts",
+        "default": "./src/capabilities/index.js"
+      },
+      "./lib": {
+        "types": "./src/lib/index.ts",
+        "default": "./src/lib/index.js"
+      },
+      "./register": {
+        "types": "./src/register/index.ts",
+        "default": "./src/register/index.js"
+      },
+      "./register/transform": {
+        "types": "./src/register/transform.ts",
+        "default": "./src/register/transform.js"
+      },
+      "./tsconfig.app.json": "./tsconfig.app.json",
+      "./package.json": "./package.json"
+    },
+    "access": "public"
+  },
+  "scripts": {
+    "prepack": "node ../../scripts/release/emit.ts",
+    "postpack": "node ../../scripts/release/emit.ts --clean",
+    "test": "node --test 'src/**/*.test.ts' 'test/*.test.ts' && node --import './src/register/index.ts?root=test/fixtures/v2' --test 'test/v2/*.test.ts'",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@murmur/transport-memory": "workspace:*",
+    "@swc/core": "1.16.20",
+    "@swc/helpers": "0.5.23",
+    "murmur": "workspace:*",
+    "yaml": "2.8.4",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "esbuild": "0.28.2"
+  },
+  "peerDependencies": {
+    "esbuild": "0.28.2"
+  },
+  "peerDependenciesMeta": {
+    "esbuild": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=26"
+  }
+}

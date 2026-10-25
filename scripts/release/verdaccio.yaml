@@ -1,0 +1,30 @@
+storage: /verdaccio/storage/data
+auth:
+  htpasswd:
+    file: /verdaccio/storage/htpasswd
+    max_users: 1000
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+packages:
+  'murmur':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+  '@murmur/*':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+  '@murmur-examples/*':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+  '**':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+server:
+  keepAliveTimeout: 60
+max_body_size: 100mb
+log: { type: stdout, format: pretty, level: warn }

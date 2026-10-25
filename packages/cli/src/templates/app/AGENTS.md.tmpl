@@ -1,0 +1,16 @@
+# AGENTS.md
+
+A murmur app: pieces under `pieces/` talk only through contracts in `contracts/`. Run commands from this folder.
+`capabilities/web/capability.ts` is the http token edges bind routes to (`@Serve(web.get('/x/:id'))`), the one place
+that lists the default guards (in the order they run) and the input failure map (`errors.input`). Shared pure code lives
+in `lib/` and is imported as `#lib/<module>`.
+
+- `pnpm exec murmur ctx pieces/<id>` — the whole brief for one piece; read it instead of the repo.
+  `--withhold-code` leaves `piece.ts` out (regenerate it from the brief). `pnpm exec murmur ctx lib/<module>` — one lib
+  module.
+- `pnpm exec murmur new piece <path>` / `pnpm exec murmur new contract <ClassName> --domain <file> --kind query` /
+  `pnpm exec murmur new lib <name>` — scaffolds (`--kind guard` + `new piece <path> --handles <Guard>` for a guard).
+- `pnpm exec murmur check pieces/<id>` — structure, boundaries, sizing; `pnpm exec murmur test pieces/<id>` — tests.
+- `pnpm exec murmur catalog` — who emits and handles what.
+- `pnpm exec murmur dev` runs the app; `pnpm exec murmur tail`, `trace <id>` and `emit <Contract>` talk to it.
+- `pnpm exec murmur migrate` applies the `schema.sql` files; `pnpm exec murmur start [process]` runs it in production.

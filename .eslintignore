@@ -1,0 +1,2 @@
+# read by oxlint (its default ignore file); the fixture app below carries its own .oxlintrc.json
+packages/lint/test/fixtures/

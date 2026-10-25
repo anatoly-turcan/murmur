@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS runs (
+  label TEXT NOT NULL,
+  attempt INTEGER NOT NULL,
+  envelope TEXT NOT NULL,
+  started INTEGER NOT NULL,
+  ended INTEGER NOT NULL
+);

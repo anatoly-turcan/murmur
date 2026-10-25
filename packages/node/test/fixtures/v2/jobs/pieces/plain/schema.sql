@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS plain_runs (label TEXT NOT NULL);

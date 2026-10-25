@@ -1,0 +1,23 @@
+{
+  "name": "@murmur/plugin",
+  "version": "0.3.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 'test/**/*.test.ts'",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@murmur/cli": "workspace:*",
+    "@murmur/lint": "workspace:*",
+    "@murmur/node": "workspace:*",
+    "@murmur/transport-memory": "workspace:*",
+    "@types/node": "26.6.5",
+    "murmur": "workspace:*",
+    "zod": "4.6.7"
+  },
+  "engines": {
+    "node": ">=26"
+  }
+}

@@ -1,0 +1,19 @@
+import { http, type RequestOf } from '@murmur/node/capabilities';
+
+const web = http({
+  guards: [],
+  errors: {
+    input: {
+      params: { status: 404, code: 'not_found' },
+      query: { status: 400, code: 'invalid_input' },
+      headers: { status: 400, code: 'invalid_input' },
+      json: { status: 400, code: 'invalid_input' },
+      mediaType: { status: 415, code: 'unsupported_media_type' },
+      body: { status: 400, code: 'invalid_input' },
+    },
+  },
+});
+
+export default web;
+
+export type WebRequest = RequestOf<typeof web>;

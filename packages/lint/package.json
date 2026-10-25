@@ -1,0 +1,45 @@
+{
+  "name": "@murmur/lint",
+  "version": "0.3.0",
+  "license": "MIT",
+  "files": [
+    "src",
+    "!src/**/*.test.ts",
+    "preset.json",
+    "type-aware.json",
+    "oxfmt.json"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./src/plugin.ts",
+    "./preset": "./preset.json",
+    "./type-aware": "./type-aware.json",
+    "./oxfmt": "./oxfmt.json",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./src/plugin.ts",
+        "default": "./src/plugin.js"
+      },
+      "./preset": "./preset.json",
+      "./type-aware": "./type-aware.json",
+      "./oxfmt": "./oxfmt.json",
+      "./package.json": "./package.json"
+    },
+    "access": "public"
+  },
+  "scripts": {
+    "prepack": "node ../../scripts/release/emit.ts",
+    "postpack": "node ../../scripts/release/emit.ts --clean",
+    "test": "node --test 'src/**/*.test.ts' 'test/*.test.ts'",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "oxlint": "1.89.0"
+  },
+  "engines": {
+    "node": ">=26"
+  }
+}

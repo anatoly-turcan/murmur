@@ -1,0 +1,16 @@
+export { analyze } from './analyze.ts';
+export type { Analysis } from './analyze.ts';
+export { deriveCatalog, filterCatalog, sendersOf, withStrictWarnings } from './catalog.ts';
+export { ROUTE_ERROR_CODES, ROUTE_RULES } from './routes.ts';
+export { assembleContext } from './context.ts';
+export type { ContextOptions, ContextResult } from './context.ts';
+export { INCLUDES } from './context-sections.ts';
+export type { Include } from './context-sections.ts';
+export { describe, DescribeError } from './describe.ts';
+export { discover } from './discover.ts';
+export { DOC_PAGES, docRef, repoDocsDir, resolveDocsDir, shippedDocsDir, syncDocs } from './docs.ts';
+export type { DocPage } from './docs.ts';
+export { estimateTokens } from './tokens.ts';
+export { staticFindings } from '../check/static-findings.ts';
+export type { Finding } from '../check/finding.ts';
+export type * from './types.ts';

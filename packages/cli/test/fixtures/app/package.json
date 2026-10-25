@@ -1,0 +1,14 @@
+{
+  "name": "cli-fixture-app",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#contracts/*": "./contracts/*.ts"
+  },
+  "dependencies": {
+    "@murmur/node": "workspace:*",
+    "@murmur/transport-memory": "workspace:*",
+    "murmur": "workspace:*",
+    "zod": "4.6.7"
+  }
+}

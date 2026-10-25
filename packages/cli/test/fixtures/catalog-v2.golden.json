@@ -1,0 +1,734 @@
+{
+  "kind": "catalog",
+  "contracts": [
+    {
+      "name": "auth.Authenticate",
+      "kind": "guard",
+      "className": "Authenticate",
+      "hasReply": true,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/auth.ts",
+      "emitters": [],
+      "requesters": ["(web defaults)"],
+      "enqueuers": [],
+      "handlers": ["auth"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "transport": { "type": "string" },
+            "operation": { "type": "string" },
+            "headers": {
+              "type": "object",
+              "propertyNames": { "type": "string" },
+              "additionalProperties": { "type": "string" }
+            },
+            "params": {
+              "type": "object",
+              "propertyNames": { "type": "string" },
+              "additionalProperties": { "type": "string" }
+            },
+            "peer": { "type": "string" },
+            "ip": { "type": "string" },
+            "meta": { "type": "object", "properties": {}, "additionalProperties": false },
+            "prior": { "type": "object", "propertyNames": { "type": "string" }, "additionalProperties": {} }
+          },
+          "required": ["transport", "operation", "headers", "params", "peer", "ip", "meta", "prior"],
+          "additionalProperties": false
+        },
+        "reply": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "integer", "minimum": 400, "maximum": 599 },
+                "code": { "type": "string", "minLength": 1 },
+                "message": { "type": "string" },
+                "details": {
+                  "anyOf": [
+                    { "type": "object", "propertyNames": { "type": "string" }, "additionalProperties": {} },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "propertyNames": { "type": "string" },
+                        "additionalProperties": {}
+                      }
+                    }
+                  ]
+                },
+                "headers": {
+                  "type": "object",
+                  "propertyNames": { "type": "string" },
+                  "additionalProperties": { "type": "string" }
+                }
+              },
+              "required": ["status", "code", "message"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "userId": { "type": "string" },
+                "roles": { "type": "array", "items": { "type": "string" } }
+              },
+              "required": ["userId", "roles"],
+              "additionalProperties": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "auth.RateLimit",
+      "kind": "guard",
+      "className": "RateLimit",
+      "hasReply": true,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/auth.ts",
+      "emitters": [],
+      "requesters": ["(web defaults)"],
+      "enqueuers": [],
+      "handlers": ["auth"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "transport": { "type": "string" },
+            "operation": { "type": "string" },
+            "headers": {
+              "type": "object",
+              "propertyNames": { "type": "string" },
+              "additionalProperties": { "type": "string" }
+            },
+            "params": {
+              "type": "object",
+              "propertyNames": { "type": "string" },
+              "additionalProperties": { "type": "string" }
+            },
+            "peer": { "type": "string" },
+            "ip": { "type": "string" },
+            "meta": {
+              "type": "object",
+              "properties": {
+                "cost": {
+                  "default": 1,
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "required": ["cost"],
+              "additionalProperties": false
+            },
+            "prior": { "type": "object", "propertyNames": { "type": "string" }, "additionalProperties": {} }
+          },
+          "required": ["transport", "operation", "headers", "params", "peer", "ip", "meta", "prior"],
+          "additionalProperties": false
+        },
+        "reply": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "integer", "minimum": 400, "maximum": 599 },
+                "code": { "type": "string", "minLength": 1 },
+                "message": { "type": "string" },
+                "details": {
+                  "anyOf": [
+                    { "type": "object", "propertyNames": { "type": "string" }, "additionalProperties": {} },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "propertyNames": { "type": "string" },
+                        "additionalProperties": {}
+                      }
+                    }
+                  ]
+                },
+                "headers": {
+                  "type": "object",
+                  "propertyNames": { "type": "string" },
+                  "additionalProperties": { "type": "string" }
+                }
+              },
+              "required": ["status", "code", "message"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": { "remaining": { "type": "number" } },
+              "required": ["remaining"],
+              "additionalProperties": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "stats.GetStats",
+      "kind": "query",
+      "className": "GetStats",
+      "hasReply": true,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/stats.ts",
+      "emitters": [],
+      "requesters": ["api/rest"],
+      "enqueuers": [],
+      "handlers": ["stats"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "reply": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": { "total": { "type": "number" }, "done": { "type": "number" } },
+          "required": ["total", "done"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "name": "todos.CompleteTodo",
+      "kind": "command",
+      "className": "CompleteTodo",
+      "hasReply": true,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": [],
+      "requesters": ["api/rest"],
+      "enqueuers": [],
+      "handlers": ["todos"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": { "id": { "type": "string" } },
+          "required": ["id"],
+          "additionalProperties": false
+        },
+        "reply": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "integer", "minimum": 400, "maximum": 599 },
+                "code": { "type": "string", "minLength": 1 },
+                "message": { "type": "string" },
+                "details": {
+                  "anyOf": [
+                    { "type": "object", "propertyNames": { "type": "string" }, "additionalProperties": {} },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "propertyNames": { "type": "string" },
+                        "additionalProperties": {}
+                      }
+                    }
+                  ]
+                },
+                "headers": {
+                  "type": "object",
+                  "propertyNames": { "type": "string" },
+                  "additionalProperties": { "type": "string" }
+                }
+              },
+              "required": ["status", "code", "message"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "title": { "type": "string" },
+                "done": { "type": "boolean" }
+              },
+              "required": ["id", "title", "done"],
+              "additionalProperties": false
+            }
+          ],
+          "title": "rejectable(Todo)"
+        }
+      }
+    },
+    {
+      "name": "todos.CreateTodo",
+      "kind": "command",
+      "className": "CreateTodo",
+      "hasReply": true,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": [],
+      "requesters": ["api/rest"],
+      "enqueuers": [],
+      "handlers": ["todos"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": { "title": { "type": "string", "minLength": 1, "maxLength": 200 } },
+          "required": ["title"],
+          "additionalProperties": false
+        },
+        "reply": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "title": { "type": "string" },
+            "done": { "type": "boolean" }
+          },
+          "required": ["id", "title", "done"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "name": "todos.GetTodo",
+      "kind": "query",
+      "className": "GetTodo",
+      "hasReply": true,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": [],
+      "requesters": ["api/rest"],
+      "enqueuers": [],
+      "handlers": ["todos"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": { "id": { "type": "string" } },
+          "required": ["id"],
+          "additionalProperties": false
+        },
+        "reply": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "title": { "type": "string" },
+                "done": { "type": "boolean" }
+              },
+              "required": ["id", "title", "done"],
+              "additionalProperties": false
+            },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "todos.ListTodos",
+      "kind": "query",
+      "className": "ListTodos",
+      "hasReply": true,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": [],
+      "requesters": ["api/rest"],
+      "enqueuers": [],
+      "handlers": ["todos"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": { "done": { "type": "boolean" } },
+          "additionalProperties": false
+        },
+        "reply": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "title": { "type": "string" },
+              "done": { "type": "boolean" }
+            },
+            "required": ["id", "title", "done"],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "name": "todos.RemoveTodo",
+      "kind": "command",
+      "className": "RemoveTodo",
+      "hasReply": true,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": [],
+      "requesters": ["api/rest"],
+      "enqueuers": [],
+      "handlers": ["todos"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": { "id": { "type": "string" } },
+          "required": ["id"],
+          "additionalProperties": false
+        },
+        "reply": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "title": { "type": "string" },
+                "done": { "type": "boolean" }
+              },
+              "required": ["id", "title", "done"],
+              "additionalProperties": false
+            },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "todos.TodoCompleted",
+      "kind": "event",
+      "className": "TodoCompleted",
+      "hasReply": false,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": ["todos"],
+      "requesters": [],
+      "enqueuers": [],
+      "handlers": ["api/feed", "stats"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": { "id": { "type": "string" } },
+          "required": ["id"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "name": "todos.TodoCreated",
+      "kind": "event",
+      "className": "TodoCreated",
+      "hasReply": false,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": ["todos"],
+      "requesters": [],
+      "enqueuers": [],
+      "handlers": ["api/feed", "stats"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": { "id": { "type": "string" }, "title": { "type": "string" } },
+          "required": ["id", "title"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "name": "todos.TodoRemoved",
+      "kind": "event",
+      "className": "TodoRemoved",
+      "hasReply": false,
+      "visibility": "public",
+      "scope": null,
+      "file": "contracts/todos.ts",
+      "emitters": ["todos"],
+      "requesters": [],
+      "enqueuers": [],
+      "handlers": ["api/feed", "stats"],
+      "schema": {
+        "payload": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": { "id": { "type": "string" } },
+          "required": ["id"],
+          "additionalProperties": false
+        }
+      }
+    }
+  ],
+  "pieces": [
+    {
+      "name": "api/feed",
+      "className": "TodosFeed",
+      "kind": "mixed",
+      "title": "SSE feed",
+      "summary": "Streams todo events to connected clients over SSE on /events/todos.",
+      "dir": "pieces/api/feed",
+      "parent": "api",
+      "depth": 2,
+      "children": [],
+      "needs": [],
+      "needFields": [],
+      "emits": [],
+      "handles": ["todos.TodoCreated", "todos.TodoCompleted", "todos.TodoRemoved"],
+      "serves": ["GET /events/todos"],
+      "requests": [],
+      "schedules": [],
+      "config": [],
+      "policy": {},
+      "hasContextMd": true,
+      "hasTests": false
+    },
+    {
+      "name": "api/rest",
+      "className": "RestApi",
+      "kind": "edge",
+      "title": "REST edge",
+      "summary": "REST over the todo domain, the /todos family and /stats.",
+      "dir": "pieces/api/rest",
+      "parent": "api",
+      "depth": 2,
+      "children": [],
+      "needs": [],
+      "needFields": [],
+      "emits": [],
+      "handles": [],
+      "serves": [
+        "GET /todos",
+        "POST /todos/:id/complete",
+        "DELETE /todos/:id",
+        "GET /stats",
+        "POST /todos",
+        "GET /todos/:id"
+      ],
+      "requests": [
+        "todos.CreateTodo",
+        "todos.GetTodo",
+        "todos.ListTodos",
+        "todos.CompleteTodo",
+        "todos.RemoveTodo",
+        "stats.GetStats"
+      ],
+      "schedules": [],
+      "config": [],
+      "policy": {},
+      "hasContextMd": true,
+      "hasTests": true
+    },
+    {
+      "name": "auth",
+      "className": "Auth",
+      "kind": "domain",
+      "title": "Auth",
+      "summary": "Guards for who is calling (bearer token) and how often (per-minute window).",
+      "dir": "pieces/auth",
+      "parent": null,
+      "depth": 1,
+      "children": [],
+      "needs": [],
+      "needFields": [],
+      "emits": [],
+      "handles": ["auth.Authenticate", "auth.RateLimit"],
+      "serves": [],
+      "requests": [],
+      "schedules": [],
+      "config": [
+        { "key": "tokens", "type": "object", "source": "yaml", "env": "MURMUR__AUTH__TOKENS" },
+        { "key": "perMinute", "type": "number", "source": "yaml", "env": "MURMUR__AUTH__PER_MINUTE" }
+      ],
+      "policy": {},
+      "hasContextMd": true,
+      "hasTests": false
+    },
+    {
+      "name": "stats",
+      "className": "TodoStats",
+      "kind": "domain",
+      "title": "Stats",
+      "summary": "A read model counting todos and done todos.",
+      "dir": "pieces/stats",
+      "parent": null,
+      "depth": 1,
+      "children": [],
+      "needs": ["sqlite"],
+      "needFields": ["db=sqlite"],
+      "emits": [],
+      "handles": ["todos.TodoCreated", "todos.TodoCompleted", "todos.TodoRemoved", "stats.GetStats"],
+      "serves": [],
+      "requests": [],
+      "schedules": [],
+      "config": [],
+      "policy": {},
+      "hasContextMd": true,
+      "hasTests": false
+    },
+    {
+      "name": "todos",
+      "className": "Todos",
+      "kind": "domain",
+      "title": "Todos",
+      "summary": "Owns the todos table — creates, reads, completes and removes todos, announcing each change.",
+      "dir": "pieces/todos",
+      "parent": null,
+      "depth": 1,
+      "children": [],
+      "needs": ["sqlite"],
+      "needFields": ["db=sqlite"],
+      "emits": ["todos.TodoCreated", "todos.TodoCompleted", "todos.TodoRemoved"],
+      "handles": [
+        "todos.CreateTodo",
+        "todos.GetTodo",
+        "todos.ListTodos",
+        "todos.CompleteTodo",
+        "todos.RemoveTodo"
+      ],
+      "serves": [],
+      "requests": [],
+      "schedules": [],
+      "config": [],
+      "policy": {},
+      "hasContextMd": true,
+      "hasTests": true
+    }
+  ],
+  "tree": [
+    {
+      "id": "api",
+      "kind": "group",
+      "title": "Edges",
+      "summary": "The transport edges of the app, REST and SSE.",
+      "children": [
+        {
+          "id": "api/feed",
+          "kind": "piece",
+          "title": "SSE feed",
+          "summary": "Streams todo events to connected clients over SSE on /events/todos.",
+          "children": []
+        },
+        {
+          "id": "api/rest",
+          "kind": "piece",
+          "title": "REST edge",
+          "summary": "REST over the todo domain, the /todos family and /stats.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "auth",
+      "kind": "piece",
+      "title": "Auth",
+      "summary": "Guards for who is calling (bearer token) and how often (per-minute window).",
+      "children": []
+    },
+    {
+      "id": "stats",
+      "kind": "piece",
+      "title": "Stats",
+      "summary": "A read model counting todos and done todos.",
+      "children": []
+    },
+    {
+      "id": "todos",
+      "kind": "piece",
+      "title": "Todos",
+      "summary": "Owns the todos table — creates, reads, completes and removes todos, announcing each change.",
+      "children": []
+    }
+  ],
+  "capabilities": [
+    { "name": "sqlite", "kind": "handle", "usedBy": ["stats", "todos"] },
+    { "name": "web", "kind": "ingress", "usedBy": [], "routes": 7 }
+  ],
+  "routes": [
+    {
+      "transport": "http",
+      "token": "web",
+      "key": "GET /events/todos",
+      "piece": "api/feed",
+      "method": "stream",
+      "guards": ["auth.Authenticate", "auth.RateLimit"]
+    },
+    {
+      "transport": "http",
+      "token": "web",
+      "key": "GET /todos",
+      "piece": "api/rest",
+      "contract": "todos.ListTodos",
+      "guards": ["auth.Authenticate", "auth.RateLimit"]
+    },
+    {
+      "transport": "http",
+      "token": "web",
+      "key": "POST /todos/:id/complete",
+      "piece": "api/rest",
+      "contract": "todos.CompleteTodo",
+      "guards": ["auth.Authenticate", "auth.RateLimit"]
+    },
+    {
+      "transport": "http",
+      "token": "web",
+      "key": "DELETE /todos/:id",
+      "piece": "api/rest",
+      "contract": "todos.RemoveTodo",
+      "status": 204,
+      "guards": ["auth.Authenticate", "auth.RateLimit"]
+    },
+    {
+      "transport": "http",
+      "token": "web",
+      "key": "GET /stats",
+      "piece": "api/rest",
+      "contract": "stats.GetStats",
+      "guards": ["auth.RateLimit"]
+    },
+    {
+      "transport": "http",
+      "token": "web",
+      "key": "POST /todos",
+      "piece": "api/rest",
+      "method": "create",
+      "guards": ["auth.Authenticate", "auth.RateLimit"]
+    },
+    {
+      "transport": "http",
+      "token": "web",
+      "key": "GET /todos/:id",
+      "piece": "api/rest",
+      "method": "show",
+      "guards": ["auth.Authenticate", "auth.RateLimit"]
+    }
+  ],
+  "warnings": [
+    {
+      "code": "missing-tests",
+      "subject": "api/feed",
+      "pieces": ["api/feed"],
+      "message": "api/feed has no *.test.ts"
+    },
+    { "code": "missing-tests", "subject": "auth", "pieces": ["auth"], "message": "auth has no *.test.ts" },
+    { "code": "missing-tests", "subject": "stats", "pieces": ["stats"], "message": "stats has no *.test.ts" }
+  ],
+  "errors": []
+}

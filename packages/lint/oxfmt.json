@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 110,
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "sortImports": true,
+  "ignorePatterns": ["node_modules/**", "dist/**", ".murmur/**", ".claude/**"]
+}

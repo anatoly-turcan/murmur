@@ -1,0 +1,16 @@
+{
+  "name": "cli-fixture-v2",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#contracts/*": "./contracts/*.ts",
+    "#capabilities/*": "./capabilities/*/capability.ts",
+    "#lib/*": "./lib/*.ts"
+  },
+  "dependencies": {
+    "@murmur/node": "workspace:*",
+    "@murmur/transport-memory": "workspace:*",
+    "murmur": "workspace:*",
+    "zod": "4.6.7"
+  }
+}

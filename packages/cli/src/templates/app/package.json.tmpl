@@ -1,0 +1,36 @@
+{
+  "name": "{{name}}",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#contracts/*": "./contracts/*.ts",
+    "#capabilities/*": "./capabilities/*/capability.ts",
+    "#lib/*": "./lib/*.ts"
+  },
+  "scripts": {
+    "dev": "murmur dev",
+    "start": "murmur start",
+    "test": "murmur test",
+    "check": "murmur check",
+    "lint": "oxlint && oxlint --type-aware -c node_modules/@murmur/lint/type-aware.json && oxfmt --check",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@murmur/node": "{{version}}",
+    "@murmur/transport-memory": "{{version}}",
+    "murmur": "{{version}}",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@murmur/cli": "{{version}}",
+    "@murmur/lint": "{{version}}",
+    "@types/node": "26.6.5",
+    "oxfmt": "0.74.0",
+    "oxlint": "1.89.0",
+    "oxlint-tsgolint": "7.0.2005",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": ">=26"
+  }
+}

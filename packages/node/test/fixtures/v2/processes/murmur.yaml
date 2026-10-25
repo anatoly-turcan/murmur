@@ -1,0 +1,7 @@
+capabilities:
+  sqlite:
+    path: '${DATABASE_PATH:-:memory:}'
+  jobs:
+    poll: false
+  web:
+    port: 0

@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS audits (
+  item_id TEXT NOT NULL
+);

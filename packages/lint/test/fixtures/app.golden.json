@@ -1,0 +1,122 @@
+[
+  {
+    "rule": "murmur/contract-factory-wrapped",
+    "file": "contracts/base.ts",
+    "line": 5
+  },
+  {
+    "rule": "murmur/contracts-json-faithful",
+    "file": "contracts/billing.ts",
+    "line": 6
+  },
+  {
+    "rule": "murmur/folder-local-imports",
+    "file": "pieces/api/rest/piece.ts",
+    "line": 6
+  },
+  {
+    "rule": "murmur/group-folder-files",
+    "file": "pieces/billing/piece.test.ts",
+    "line": 1
+  },
+  {
+    "rule": "murmur/declared-deps-only",
+    "file": "pieces/billing/invoice/total.ts",
+    "line": 1
+  },
+  {
+    "rule": "murmur/folder-local-imports",
+    "file": "pieces/billing/invoice/total.ts",
+    "line": 3
+  },
+  {
+    "rule": "murmur/no-cross-piece-contracts-import",
+    "file": "pieces/billing/invoice/total.ts",
+    "line": 3
+  },
+  {
+    "rule": "murmur/folder-local-imports",
+    "file": "pieces/billing/invoice/total.ts",
+    "line": 4
+  },
+  {
+    "rule": "murmur/erasable-syntax-only",
+    "file": "pieces/notify/send/legacy.ts",
+    "line": 1
+  },
+  {
+    "rule": "murmur/decorators-in-pieces-only",
+    "file": "pieces/notify/send/legacy.ts",
+    "line": 9
+  },
+  {
+    "rule": "murmur/erasable-syntax-only",
+    "file": "pieces/notify/send/legacy.ts",
+    "line": 11
+  },
+  {
+    "rule": "murmur/no-comments-in-functions",
+    "file": "pieces/notify/send/legacy.ts",
+    "line": 14
+  },
+  {
+    "rule": "murmur/folder-local-imports",
+    "file": "pieces/notify/send/piece.ts",
+    "line": 5
+  },
+  {
+    "rule": "murmur/internal-contracts-scope",
+    "file": "pieces/notify/send/piece.ts",
+    "line": 5
+  },
+  {
+    "rule": "murmur/no-process-env",
+    "file": "pieces/notify/send/piece.ts",
+    "line": 11
+  },
+  {
+    "rule": "murmur/emit-declared",
+    "file": "pieces/notify/send/piece.ts",
+    "line": 13
+  },
+  {
+    "rule": "murmur/emit-declared",
+    "file": "pieces/todos/piece.ts",
+    "line": 14
+  },
+  {
+    "rule": "murmur/decorator-args-static",
+    "file": "pieces/todos/piece.ts",
+    "line": 19
+  },
+  {
+    "rule": "murmur/no-typeof-types",
+    "file": "pieces/todos/repository.ts",
+    "line": 7
+  },
+  {
+    "rule": "murmur/no-nested-ternary",
+    "file": "pieces/todos/repository.ts",
+    "line": 24
+  },
+  {
+    "rule": "eslint(curly)",
+    "file": "pieces/todos/style.ts",
+    "line": 2
+  },
+  {
+    "rule": "murmur/blank-line-around-blocks",
+    "file": "pieces/todos/style.ts",
+    "line": 3
+  },
+  {
+    "rule": "murmur/blank-line-around-blocks",
+    "file": "pieces/todos/style.ts",
+    "line": 4
+  },
+  {
+    "rule": "murmur/blank-line-around-blocks",
+    "file": "pieces/todos/style.ts",
+    "line": 14
+  }
+]

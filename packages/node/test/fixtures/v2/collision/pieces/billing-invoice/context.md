@@ -1,0 +1,3 @@
+---
+summary: Declares taxRate.
+---

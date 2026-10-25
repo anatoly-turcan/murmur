@@ -1,0 +1,7 @@
+{
+  "extends": ["../../../../lint/preset.json"],
+  "rules": {
+    "murmur/erasable-syntax-only": "off",
+    "murmur/declared-deps-only": "off"
+  }
+}

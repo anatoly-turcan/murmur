@@ -1,0 +1,37 @@
+{
+  "name": "@murmur-examples/todo-api",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#contracts/*": "./contracts/*.ts",
+    "#capabilities/*": "./capabilities/*/capability.ts",
+    "#lib/*": "./lib/*.ts"
+  },
+  "scripts": {
+    "dev": "murmur dev",
+    "start": "murmur start",
+    "test": "murmur test 'pieces/**/*.test.ts' 'lib/**/*.test.ts' e2e.test.ts tooling.test.ts",
+    "check": "murmur check",
+    "lint": "oxlint && oxlint --type-aware -c node_modules/@murmur/lint/type-aware.json && oxfmt --check",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@murmur/node": "workspace:*",
+    "@murmur/transport-memory": "workspace:*",
+    "murmur": "workspace:*",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@murmur/cli": "workspace:*",
+    "@murmur/dev-protocol": "workspace:*",
+    "@murmur/lint": "workspace:*",
+    "@types/node": "26.6.5",
+    "oxfmt": "0.74.0",
+    "oxlint": "1.89.0",
+    "oxlint-tsgolint": "7.0.2005",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": ">=26"
+  }
+}

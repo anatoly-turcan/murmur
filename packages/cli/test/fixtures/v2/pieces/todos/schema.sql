@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS todos (
+  id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  done INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS todo_requests (
+  envelope_id TEXT PRIMARY KEY,
+  todo_id TEXT NOT NULL,
+  announced INTEGER NOT NULL DEFAULT 0
+);
